@@ -65,6 +65,8 @@ shards install
 crystal src/server.cr # now head to localhost:8090
 ```
 
+![tumblr demo](examples/tumblr_integration/oauth_flow.gif)
+
 ## Contributing
 
 1. Fork it (<https://github.com/lbarasti/simple_oauth/fork>)
