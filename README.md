@@ -4,7 +4,9 @@
 
 # simple_oauth
 
-A minimal implementation of OAuth Consumer, to be relied upon when implementing OAuth1.0 flows.
+A minimal implementation of the OAuth specification designed to build OAuth1.0 flows quickly.
+
+`SimpleOAuth` offers a small subset of the capabilities of its counterpart in the [Crystal standard library](https://crystal-lang.org/api/latest/OAuth.html). It makes it easier to swap HTTP client and is simpler to navigate - by means of being a lot smaller.
 
 ## Installation
 
@@ -20,7 +22,7 @@ A minimal implementation of OAuth Consumer, to be relied upon when implementing 
 
 ## Usage
 
-Just extend SimpleOAuth::Consumer and define the request, authenticate and access token URLs as class variables.
+Just extend `SimpleOAuth::Consumer` and define the request, authenticate and access token URLs as class variables.
 ```crystal
 require "simple_oauth"
 
