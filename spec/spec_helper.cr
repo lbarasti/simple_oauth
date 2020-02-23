@@ -24,7 +24,7 @@ class TestConsumer < SimpleOAuth::Consumer
   @@host = "https://api.twitter.com/"
   @@request_token_url = "#{@@host}oauth/request_token"
   @@access_token_url = "#{@@host}oauth/access_token"
-  @@authenticate_url = "#{@@host}oauth/authenticate?oauth_token=%s"
+  @@authenticate_url = "#{@@host}oauth/authenticate"
 
   def exec(method : Symbol, url : String, headers : Hash(String, String), params : Hash(String, String))
     auth_header = headers["Authorization"]

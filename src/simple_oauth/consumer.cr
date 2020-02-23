@@ -47,7 +47,7 @@ module SimpleOAuth
     # Returns the `/authenticate` URL with the OAuth Request Token passed as query string parameter.
     # This is used in Step 2 of the 3-legged OAuth flow.
     def self.authenticate_url(request_token : String)
-      @@authenticate_url % request_token
+      @@authenticate_url + "?oauth_token=" + request_token
     end
 
     # A struct encapsulating OAuth Token and OAuth Token Secret.

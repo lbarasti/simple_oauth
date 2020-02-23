@@ -1,6 +1,10 @@
+[![GitHub release](https://img.shields.io/github/release/lbarasti/simple_oauth.svg)](https://github.com/lbarasti/simple_oauth/releases)
+![Build Status](https://github.com/lbarasti/simple_oauth/workflows/build/badge.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 # simple_oauth
 
-TODO: Write a description here
+A minimal implementation of OAuth Consumer, to be relied upon when implementing OAuth1.0 flows.
 
 ## Installation
 
