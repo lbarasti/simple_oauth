@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in with Tumblr Demo</title>
+  </head>
+  <body>
+    <div class="content" id="app">
+      <div v-if="loaded">
+        <div v-if="logged_in">
+          You are logged in as {{ username }}
+          <a href="#" v-on:click="logout">Logout</a>
+        </div>
+        <div v-else>
+          <a href="/authenticate"><img src="sign-in-with-tumblr.png"></a>
+        </div>
+      </div>
+      <div v-else>Loading</div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -2,6 +2,7 @@
 /lib/
 /bin/
 /.shards/
+/examples/**/lib
 *.dwarf
 
 # Libraries don't need dependency lock

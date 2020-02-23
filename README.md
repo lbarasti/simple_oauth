@@ -29,12 +29,38 @@ class TumblrAPI < SimpleOAuth::Consumer
   @@authenticate_url = "https://www.tumblr.com/oauth/authorize"
   @@access_token_url = "https://www.tumblr.com/oauth/access_token"
 end
+```
 
+#### Initializing a consumer client
+You can now create a consumer client, provided a consumer key, a secret and a callback URL. You can get these from your OAuth provider.
+
+```crystal
 consumer_key = ENV["TUMBLR_CONSUMER_KEY"]
 consumer_secret = ENV["TUMBLR_CONSUMER_SECRET"]
 callback_url = ENV["TUMBLR_CALLBACK_URL"]
 
 consumer = TumblrAPI.new(consumer_key, consumer_secret, callback_url)
+```
+
+#### Requesting an OAuth Request Token
+When a user requests to sign in with a selected OAuth provider, the first step for your app is to ask the provider for an OAuth Requests Token.
+```crystal
+request_token = consumer.get_token
+```
+Your app will then redirect the user to a provider-owned login screen - `TumblrAPI.authenticate_url(request_token)` in this example - where they can authorize your app to issue requests on their behalf.
+
+#### Upgrading to an OAuth Access Token
+After the sign-in, the user is redirected to your app via a whitelisted callback URL. With the parameters included in the request, your app can now upgrade the request token to an access one.
+```crystal
+access_token = consumer.upgrade_token(request_token, verifier)
+```
+
+#### How does this work in practice?
+Check out the `/examples` folder to see the big picture. For example
+```
+cd example/tumblr_integration
+shards install
+crystal src/server.cr # now head to localhost:8090
 ```
 
 ## Contributing
