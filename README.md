@@ -20,15 +20,22 @@ A minimal implementation of OAuth Consumer, to be relied upon when implementing 
 
 ## Usage
 
+Just extend SimpleOAuth::Consumer and define the request, authenticate and access token URLs as class variables.
 ```crystal
 require "simple_oauth"
+
+class TumblrAPI < SimpleOAuth::Consumer
+  @@request_token_url = "https://www.tumblr.com/oauth/request_token"
+  @@authenticate_url = "https://www.tumblr.com/oauth/authorize"
+  @@access_token_url = "https://www.tumblr.com/oauth/access_token"
+end
+
+consumer_key = ENV["TUMBLR_CONSUMER_KEY"]
+consumer_secret = ENV["TUMBLR_CONSUMER_SECRET"]
+callback_url = ENV["TUMBLR_CALLBACK_URL"]
+
+consumer = TumblrAPI.new(consumer_key, consumer_secret, callback_url)
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 

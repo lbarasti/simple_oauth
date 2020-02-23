@@ -2,20 +2,19 @@ require "./spec_helper"
 
 include SimpleOAuth
 
-F = Fixtures.new
-
 describe Consumer do
+  f = Fixtures.new
   consumer_key = "consumer:k3y"
   consumer_secret = "consumer:s3cret"
-  access_token = Consumer::TokenPair.new(F.oauth_token_access, F.oauth_token_secret_access)
+  access_token = Consumer::TokenPair.new(f.oauth_token_access, f.oauth_token_secret_access)
 
-  api = TestConsumer.new(consumer_key, consumer_secret, F.whitelisted_callback_url)
+  api = TestConsumer.new(consumer_key, consumer_secret, f.whitelisted_callback_url)
   api_unverified_callback_url = TestConsumer.new(consumer_key, consumer_secret, "https://other.url")
 
   describe "#get_token" do
     it "generates a request token + secret" do
       api.get_token.should eq(
-        Consumer::TokenPair.new(F.oauth_token, F.oauth_token_secret))
+        Consumer::TokenPair.new(f.oauth_token, f.oauth_token_secret))
     end
     it "throws an error if the callback is not verified" do
       expect_raises(Consumer::CallbackNotConfirmed) do
@@ -25,7 +24,7 @@ describe Consumer do
   end
   describe "#upgrade_token" do
     it "converts a request token pair into an access one" do
-      api.upgrade_token(F.token_pair, F.oauth_verifier).should eq(access_token)
+      api.upgrade_token(f.token_pair, f.oauth_verifier).should eq(access_token)
     end
   end
   describe "Consumer.authenticate_url" do
