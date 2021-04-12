@@ -1,6 +1,7 @@
 [![GitHub release](https://img.shields.io/github/release/lbarasti/simple_oauth.svg)](https://github.com/lbarasti/simple_oauth/releases)
 ![Build Status](https://github.com/lbarasti/simple_oauth/workflows/build/badge.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://lbarasti.github.io/simple_oauth)
 
 # simple_oauth
 
@@ -52,7 +53,7 @@ request_token = consumer.get_token
 Your app will then redirect the user to a provider-owned login screen - `TumblrAPI.authenticate_url(request_token)` in this example - where they can authorize your app to issue requests on their behalf.
 
 #### Upgrading to an OAuth Access Token
-After the sign-in, the user is redirected to your app via a whitelisted callback URL. With the parameters included in the request, your app can now upgrade the request token to an access one.
+After the sign-in, the user is redirected to your app via a white-listed callback URL. With the parameters included in the request, your app can now upgrade the request token to an access one.
 ```crystal
 access_token = consumer.upgrade_token(request_token, verifier)
 ```
